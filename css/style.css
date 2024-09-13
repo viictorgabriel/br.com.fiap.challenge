@@ -11,8 +11,13 @@ header {
     height: 40px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .navegacao {
     max-width: 350px;
+    min-width: 210px;
 }
 
 .link-nav {
@@ -49,11 +54,27 @@ header {
     background-color: #014811;
 }
 
+.card-fornecedores {
+    background-color: #EB0033;
+}
+
+.card-fixos {
+    background-color: #067C8C;
+}
+
+.card-mesal {
+    background-color: #746D6D;
+}
+
+.card-franquia {
+    background-color: #000000;
+}
 
 .card p {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     color: white;
     margin-bottom: 0.25rem;
+    font-weight: 600;
 }
 
 .card h4 {
@@ -63,6 +84,6 @@ header {
 }
 
 .p-gray {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     opacity: 0.7;
 }
