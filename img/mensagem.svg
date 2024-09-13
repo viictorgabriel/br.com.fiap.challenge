@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+    <path id="fundo" d="M10 28 L11 34 L17 28 L18 28 Q30 28 30 18 Q30 8 18 8 Q5 8 5 18 Q5 28 10 28Z" fill="none" stroke="#929bb5" stroke-width="2" transform="translate(1, 0)"/>
+    <circle id="white" r="7.5" fill="white" transform="translate(25.2, 8.3)" />
+    <path id="Shape-2" data-name="Shape" d="M5.2,10.4a5.2,5.2,0,1,1,5.2-5.2A5.2,5.2,0,0,1,5.2,10.4Z" fill="#D9293A" transform="translate(20, 3)"/>
+</svg>

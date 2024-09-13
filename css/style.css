@@ -1,0 +1,68 @@
+* {
+    font-family: "Inter", sans-serif;
+}
+
+header {
+    height: 70px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-ifood {
+    height: 40px;
+}
+
+.navegacao {
+    max-width: 350px;
+}
+
+.link-nav {
+    text-decoration: none;
+    color: black;
+    padding: 8px 12px;
+}
+
+.link-nav-active {
+    text-decoration: none;
+    background-color: #D9293A;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.card {
+    height: fit-content;
+}
+
+.card-saldo {
+    background-color: #98009B;
+}
+
+.card-ultimo-mes {
+    background-color: #06328C;
+}
+
+.card-mes-atual {
+    background-color: #FF6565;
+}
+
+.card-semana {
+    background-color: #014811;
+}
+
+
+.card p {
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.card h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.p-gray {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
