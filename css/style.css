@@ -118,3 +118,72 @@ textarea {
 label {
     width: fit-content;
 }
+
+.border-dashed-table {
+    border-style: dashed;
+    border-radius: 0.5rem;
+}
+
+.border-dashed-col {
+    border-right-style: dashed;
+}
+
+.table-heading {
+    padding: 0.7rem 0;
+    width: 85%;
+    background-color: #890019;
+    color: white;
+    margin: auto;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.table-p {
+    padding: 0.7rem 1rem;
+    width: 85%;
+    background-color: #eee;
+    color: #555;
+    margin: auto;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.grid-table {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.w-20 {
+    width: 20%
+}
+
+.acoes {
+    background-color: #939393;
+    color: #1F253A;
+    font-weight: 800;
+    text-align: center;
+    height: fit-content;
+}
+
+.botoes-acoes {
+    margin: 0;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botao-editar {   
+    background-color: #1F253A;
+}
+
+.botao-excluir {
+    background-color: #FB0208;
+}
+
+.botao-entrada {
+    background-color: #0930BB;
+}
