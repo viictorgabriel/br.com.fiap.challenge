@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Vendas</title>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -20,10 +20,10 @@
         </div>
         
         <div class="d-flex gap-4">
-            <img src="/img/bell.svg" alt="Ícone de Notificação" class="pointer">
-            <img src="/img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
-            <a href="meu-peril.html">
-            <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
+            <img src="./img/bell.svg" alt="Ícone de Notificação" class="pointer">
+            <img src="./img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
+            <a href="perfil.html">
+                <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
             </a>
         </div>
     </header>
@@ -42,12 +42,12 @@
                         <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Dashboard</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dashboard-entrada.html">Entradas</a></li>
-                            <li><a class="dropdown-item" href="#">Saídas</a></li>
+                            <li><a class="dropdown-item" href="dashboard-saidas.html">Saídas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/produtos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="produtos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="produtos-lista.html">Lista</a></li>
@@ -55,58 +55,76 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/fornecedores.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Fornecedores</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Fornecedores</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="fornecedores-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="fornecedores-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/funcionarios.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Funcionários</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Funcionários</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="funcionarios-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="funcionarios-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/pagamentos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Pagamentos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pagamentos-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="pagamentos-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/vendas.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Vendas</a>
+                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Vendas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vendas-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="vendas-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <!-- Dashboard -->
+        <!-- Form -->
         <div class="w-100 container p-3">
-            <!-- Form -->
-            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Produto: 1</h2>
+            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Venda: 1</h2>
 
-            <form class="d-flex mt-4 w-100">
-                <!-- Primeira Coluna -->
-                <div class="d-flex flex-column w-50 p-2">
-                    <label for="nome" class="ms-1">Nome:</label>
-                    <input id="nome" name="nome" type="text" class="rounded-3 w-100" />
+            <form class="d-flex flex-column mt-4 w-90">
+                <div class="d-flex gap-3">
+                    <div class="d-flex flex-column w-60">
+                        <label for="endereco" class="ms-1">Endereço:</label>
+                        <input id="endereco" name="endereco" type="text" class="rounded-3 w-100" />
+                    </div>
 
-                    <label for="desc" class="ms-1 mt-4">Descrição:</label>
-                    <textarea id="desc" name="desc" rows="3" class="rounded-3 w-100"></textarea>
-
-                    <label for="infonutri" class="ms-1 mt-4">Informação Nutricional:</label>
-                    <textarea id="infonutri" name="infonutri" rows="5" class="rounded-3 w-100"></textarea>
+                    <div class="d-flex flex-column w-40">
+                        <label for="nome" class="ms-1">Nome:</label>
+                        <input id="nome" name="nome" type="text" class="rounded-3 w-100" />
+                    </div>
                 </div>
 
-                <!-- Segunda Coluna -->
-                <div class="d-flex flex-column w-50 p-2">
-                    <label for="img" class="ms-1">Imagem:</label>
-                    <input id="img" name="img" type="file" accept="image/*" onchange="mostrarImagem(event)" class="rounded-3 w-75" />
-                    <label for="img">
-                        <img id="img-form" class="w-75"/>
-                    </label>
+                <label for="desc" class="ms-1 mt-4">Descrição:</label>
+                <textarea id="desc" name="desc" rows="1" class="rounded-3 w-100"></textarea>
 
-                    <label for="quantvendas" class="ms-1 mt-4">Quantidade de Vendas:</label>
-                    <input id="quantvendas" name="quantvendas" type="number" class="rounded-3 w-75" />
+                <div class="d-flex w-100 gap-3">
+                    <div class="d-flex w-50 flex-column">
+                        <label class="ms-1 mt-4">Produtos:</label>
+                        <button id="adicionar-produto" type="button" class="rounded-3 w-100">Adicionar Produto</button>
+                        <input id="produto1" name="produto1" type="text" value="Hamburguer - R$ 50,00" class="rounded-3 w-100 mt-2" />
+                        <input id="produto2" name="produto2" type="text" value="Batata - R$ 50,00" class="rounded-3 w-100 mt-2" />
+                        <input id="produto3" name="produto3" type="text" value="Refrigerante - R$ 50,00" class="rounded-3 w-100 mt-2" />
+                    </div>
 
-                    <label for="valor" class="ms-1 mt-4">Valor:</label>
-                    <input id="valor" name="valor" type="text" onkeydown="mascararValor(event)" class="rounded-3 w-75" />
-
-                    <input id="cadastrar" type="submit" class="rounded-3 mt-4" value="Cadastrar" />
+                    <div class="d-flex w-50 flex-column">
+                        <label for="valor" class="ms-1 mt-auto">Total:</label>
+                        <input id="valor" name="valor" type="text" onkeydown="mascararValor(event)" value="R$ 150,00" class="rounded-3 w-100" />
+                    </div>
                 </div>
+
+                <input id="cadastrar-pagto" type="submit" class="rounded-3 mt-4" value="Cadastrar" />
             </form>
         </div>
     </div>
@@ -115,23 +133,11 @@
     let id;
 
     window.addEventListener("load", function () {
-        let idJSON = JSON.parse(localStorage.getItem('produtos'));
+        let idJSON = JSON.parse(localStorage.getItem('vendas'));
         id = idJSON ? Object.keys(idJSON).length + 1 : 1;
 
-        document.getElementById('cadastrar-id').innerText = "Cadastrar Produto: " + id;
+        document.getElementById('cadastrar-id').innerText = "Cadastrar Venda: " + id;
     });
-
-    function mostrarImagem(event) {
-        const file = event.target.files[0];
-        const imgForm = document.getElementById('img-form');
-        imgForm.src = URL.createObjectURL(file);
-
-        document.getElementById('img').style.display = 'none';
-
-        imgForm.onload = function() {
-            URL.revokeObjectURL(imgForm.src) // limpar a memória
-        }
-    }
 
     let valor = '';
     function mascararValor(event) {
@@ -179,13 +185,16 @@
 
         const data = new FormData(event.target);
 
+        var date = new Date();
+        var dataAtual = date.getDate().toString().padStart(2, '0') + '/' + (date.getMonth() + 1).toString().padStart(2, '0') + '/' + date.getFullYear();
+
         let value = Object.fromEntries(data.entries());
-        let lista = JSON.parse(localStorage.getItem('produtos'));
+        let lista = JSON.parse(localStorage.getItem('vendas'));
         let newEntry = {};
-        newEntry[id] = { nome: value.nome, desc: value.desc, infonutri: value.infonutri, img: value.img, quantvendas: value.quantvendas, valor: value.valor };
+        newEntry[id] = { nome: value.nome, nota: Math.floor(Math.random() * 1000000000), desc: value.desc, data: dataAtual, valor: value.valor };
         value = Object.assign({}, lista, newEntry);
 
-        localStorage.setItem("produtos", JSON.stringify(value));
+        localStorage.setItem("vendas", JSON.stringify(value));
 
         location.reload();
     }

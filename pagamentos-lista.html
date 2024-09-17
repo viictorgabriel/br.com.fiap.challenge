@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <title>Produtos</title>
+    <title>Pagamentos</title>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -20,8 +20,8 @@
         </div>
         
         <div class="d-flex gap-4">
-            <img src="/img/bell.svg" alt="Ícone de Notificação" class="pointer">
-            <img src="/img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
+            <img src="./img/bell.svg" alt="Ícone de Notificação" class="pointer">
+            <img src="./img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
             <a href="perfil.html">
                 <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
             </a>
@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/produtos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="produtos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="produtos-lista.html">Lista</a></li>
@@ -71,7 +71,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/pagamentos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
+                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="pagamentos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="pagamentos-lista.html">Lista</a></li>
@@ -94,30 +94,30 @@
 
         </div>
         
-        <div class="grid-table border-danger-subtle border-dashed-table m-2">
-            <div id="id-grid" class="p-2 border-danger-subtle border-dashed-col">
-                <p class="table-heading produtos">
-                    ID
+        <div class="grid-table pagamentos-border border-dashed-table m-2">
+            <div id="nome-grid" class="p-2 pagamentos-border border-dashed-col">
+                <p class="table-heading pagamentos">
+                    Nome
                 </p>
             </div>
-            <div id="nome-grid" class="p-2 border-danger-subtle border-dashed-col">
-                <p class="table-heading produtos">
-                    Produto
+            <div id="desc-grid" class="p-2 pagamentos-border border-dashed-col">
+                <p class="table-heading pagamentos">
+                    Descrição
                 </p>
             </div>
-            <div id="valor-grid" class="p-2 border-danger-subtle border-dashed-col">
-                <p class="table-heading produtos">
-                    Valor Unitário
+            <div id="nota-grid" class="p-2 pagamentos-border border-dashed-col">
+                <p class="table-heading pagamentos">
+                    Nota Fiscal
                 </p>
             </div>
-            <div id="vendido-grid" class="p-2 border-danger-subtle border-dashed-col">
-                <p class="table-heading produtos">
-                    Quant. Vendido
+            <div id="data-grid" class="p-2 pagamentos-border border-dashed-col">
+                <p class="table-heading pagamentos">
+                    Data
                 </p>
             </div>
-            <div id="total-grid" class="p-2">
-                <p class="table-heading produtos">
-                    Total Vendido
+            <div id="valor-grid" class="p-2">
+                <p class="table-heading pagamentos">
+                    Valor
                 </p>
             </div>
         </div>
@@ -171,13 +171,14 @@
     <script type="text/javascript">
     window.addEventListener("load", function () {
         const checkboxDiv = document.getElementById('flex-checkbox');
-        const idGrid = document.getElementById('id-grid');
         const nomeGrid = document.getElementById('nome-grid');
+        const descGrid = document.getElementById('desc-grid');
+        const notaGrid = document.getElementById('nota-grid');
+        const dataGrid = document.getElementById('data-grid');
         const valorGrid = document.getElementById('valor-grid');
-        const quantvendasGrid = document.getElementById('vendido-grid');
-        const totalGrid = document.getElementById('total-grid');
-        let lista = JSON.parse(localStorage.getItem('produtos'));
+        let lista = JSON.parse(localStorage.getItem('pagamentos'));
 
+        console.log(lista)
 
         var count = Object.keys(lista).length;
 
@@ -187,13 +188,6 @@
 
             checkboxDiv.insertAdjacentElement('beforeend', checkbox);
 
-            let idRow = document.createElement("p");
-            idRow.innerText = Object.keys(lista)[i - 1];
-            idRow.classList.add('table-p');
-            idRow.classList.add('mt-2');
-
-            idGrid.insertAdjacentElement('beforeend', idRow);
-
             let nomeRow = document.createElement("p");
             nomeRow.innerText = lista[i].nome;
             nomeRow.classList.add('table-p');
@@ -201,28 +195,33 @@
 
             nomeGrid.insertAdjacentElement('beforeend', nomeRow);
 
+            let descRow = document.createElement("p");
+            descRow.innerText = lista[i].desc;
+            descRow.classList.add('table-p');
+            descRow.classList.add('mt-2');
+
+            descGrid.insertAdjacentElement('beforeend', descRow);
+
+            let notaRow = document.createElement("p");
+            notaRow.innerText = lista[i].nota;
+            notaRow.classList.add('table-p');
+            notaRow.classList.add('mt-2');
+
+            notaGrid.insertAdjacentElement('beforeend', notaRow);
+
+            let dataRow = document.createElement("p");
+            dataRow.innerText = lista[i].data;
+            dataRow.classList.add('table-p');
+            dataRow.classList.add('mt-2');
+
+            dataGrid.insertAdjacentElement('beforeend', dataRow);
+
             let valorRow = document.createElement("p");
             valorRow.innerText = lista[i].valor;
             valorRow.classList.add('table-p');
             valorRow.classList.add('mt-2');
 
             valorGrid.insertAdjacentElement('beforeend', valorRow);
-
-            let quantvendasRow = document.createElement("p");
-            quantvendasRow.innerText = Intl.NumberFormat().format(lista[i].quantvendas);
-            quantvendasRow.classList.add('table-p');
-            quantvendasRow.classList.add('mt-2');
-
-            quantvendasGrid.insertAdjacentElement('beforeend', quantvendasRow);
-
-            let total = parseFloat(lista[i].valor.replace('R$ ','').replace('.','').replace(',','.')) * lista[i].quantvendas;
-
-            let totalRow = document.createElement("p");
-            totalRow.innerText = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
-            totalRow.classList.add('table-p');
-            totalRow.classList.add('mt-2');
-
-            totalGrid.insertAdjacentElement('beforeend', totalRow);
         }
     });
     </script>

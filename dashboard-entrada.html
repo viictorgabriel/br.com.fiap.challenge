@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Entradas</title>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -22,8 +22,8 @@
         <div class="d-flex gap-4">
             <img src="/img/bell.svg" alt="Ícone de Notificação" class="pointer">
             <img src="/img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
-            <a href="meu-peril.html">
-            <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
+            <a href="perfil.html">
+                <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
             </a>
         </div>
     </header>
@@ -55,19 +55,35 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/fornecedores.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Fornecedores</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Fornecedores</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="fornecedores-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="fornecedores-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/funcionarios.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Funcionários</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Funcionários</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="funcionarios-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="funcionarios-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/pagamentos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Pagamentos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pagamentos-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="pagamentos-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/vendas.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav" aria-current="page" href="dashboard-entrada.html">Vendas</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Vendas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vendas-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="vendas-lista.html">Lista</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -104,6 +120,31 @@
                         <h4>R$ 15.540,00</h4>
                         <p class="p-gray">Saved 25%</p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Gráficos -->
+            <div class="row">
+                <div class="col-lg-6 p-2">
+                    <img src="./img/grafico1.svg" alt="Gráfico de Balanço" class="w-100">
+                </div>
+
+                <div class="col-lg-3 p-2">
+                    <img src="./img/grafico2.svg" alt="Gráfico de Metas Anuais" class="w-100">
+                </div>
+
+                <div class="col-lg-3 p-2">
+                    <img src="./img/grafico3.svg" alt="Gráfico de Metas Anuais" class="w-100">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 p-2">
+                    <img src="./img/grafico4.svg" alt="Gráfico de Balanço" class="w-100">
+                </div>
+
+                <div class="col-lg-6 p-2">
+                    <img src="./img/grafico5.svg" alt="Gráfico de Metas Anuais" class="w-100">
                 </div>
             </div>
         </div>

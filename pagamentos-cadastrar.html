@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <title>Produtos</title>
+    <title>Pagamentos</title>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -20,8 +20,8 @@
         </div>
         
         <div class="d-flex gap-4">
-            <img src="/img/bell.svg" alt="Ícone de Notificação" class="pointer">
-            <img src="/img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
+            <img src="./img/bell.svg" alt="Ícone de Notificação" class="pointer">
+            <img src="./img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
             <a href="perfil.html">
                 <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
             </a>
@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/produtos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="produtos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="produtos-lista.html">Lista</a></li>
@@ -71,7 +71,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/pagamentos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
+                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="pagamentos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="pagamentos-lista.html">Lista</a></li>
@@ -91,37 +91,36 @@
 
         <!-- Form -->
         <div class="w-100 container p-3">
-            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Produto: 1</h2>
+            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Pagamento: 1</h2>
 
-            <form class="d-flex mt-4 w-100">
-                <!-- Primeira Coluna -->
-                <div class="d-flex flex-column w-50 p-2">
-                    <label for="nome" class="ms-1">Nome:</label>
-                    <input id="nome" name="nome" type="text" class="rounded-3 w-100" />
+            <form class="d-flex flex-column mt-4 w-90">
+                <div class="d-flex">
+                    <div class="d-flex flex-column w-50">
+                        <label for="nome" class="ms-1">Nome:</label>
+                        <input id="nome" name="nome" type="text" class="rounded-3 w-100" />
+                    </div>
 
-                    <label for="desc" class="ms-1 mt-4">Descrição:</label>
-                    <textarea id="desc" name="desc" rows="3" class="rounded-3 w-100"></textarea>
-
-                    <label for="infonutri" class="ms-1 mt-4">Informação Nutricional:</label>
-                    <textarea id="infonutri" name="infonutri" rows="5" class="rounded-3 w-100"></textarea>
+                    <div class="d-flex flex-column w-50">
+                        <label class="ms-4">Tipo:</label>
+                        <div class="d-flex align-items-center">
+                            <input id="fornecedor" name="tipo" type="radio" class="ms-4 me-2" value="Fornecedor" checked /><label for="fornecedor">Fornecedor</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <input id="funcionario" name="tipo" type="radio" class="ms-4 me-2" value="Funcionário"><label for="funcionario">Funcionário</label>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Segunda Coluna -->
-                <div class="d-flex flex-column w-50 p-2">
-                    <label for="img" class="ms-1">Imagem:</label>
-                    <input id="img" name="img" type="file" accept="image/*" onchange="mostrarImagem(event)" class="rounded-3 w-75" />
-                    <label for="img">
-                        <img id="img-form" class="w-75"/>
-                    </label>
+                <label for="nota" class="ms-1 mt-4">Nota Fiscal:</label>
+                <input id="nota" name="nota" type="text" class="rounded-3 w-100" />
 
-                    <label for="quantvendas" class="ms-1 mt-4">Quantidade de Vendas:</label>
-                    <input id="quantvendas" name="quantvendas" type="number" class="rounded-3 w-75" />
+                <label for="desc" class="ms-1 mt-4">Descrição:</label>
+                <textarea id="desc" name="desc" rows="3" class="rounded-3 w-100"></textarea>
 
-                    <label for="valor" class="ms-1 mt-4">Valor:</label>
-                    <input id="valor" name="valor" type="text" onkeydown="mascararValor(event)" class="rounded-3 w-75" />
+                <label for="valor" class="ms-1 mt-4">Valor:</label>
+                <input id="valor" name="valor" type="text" onkeydown="mascararValor(event)" class="rounded-3 w-100" />
 
-                    <input id="cadastrar" type="submit" class="rounded-3 mt-4" value="Cadastrar" />
-                </div>
+                <input id="cadastrar-pagto" type="submit" class="rounded-3 mt-4" value="Cadastrar" />
             </form>
         </div>
     </div>
@@ -130,23 +129,11 @@
     let id;
 
     window.addEventListener("load", function () {
-        let idJSON = JSON.parse(localStorage.getItem('produtos'));
+        let idJSON = JSON.parse(localStorage.getItem('pagamentos'));
         id = idJSON ? Object.keys(idJSON).length + 1 : 1;
 
-        document.getElementById('cadastrar-id').innerText = "Cadastrar Produto: " + id;
+        document.getElementById('cadastrar-id').innerText = "Cadastrar Pagamento: " + id;
     });
-
-    function mostrarImagem(event) {
-        const file = event.target.files[0];
-        const imgForm = document.getElementById('img-form');
-        imgForm.src = URL.createObjectURL(file);
-
-        document.getElementById('img').style.display = 'none';
-
-        imgForm.onload = function() {
-            URL.revokeObjectURL(imgForm.src) // limpar a memória
-        }
-    }
 
     let valor = '';
     function mascararValor(event) {
@@ -194,13 +181,16 @@
 
         const data = new FormData(event.target);
 
+        var date = new Date();
+        var dataAtual = date.getDate().toString().padStart(2, '0') + '/' + (date.getMonth() + 1).toString().padStart(2, '0') + '/' + date.getFullYear();
+
         let value = Object.fromEntries(data.entries());
-        let lista = JSON.parse(localStorage.getItem('produtos'));
+        let lista = JSON.parse(localStorage.getItem('pagamentos'));
         let newEntry = {};
-        newEntry[id] = { nome: value.nome, desc: value.desc, infonutri: value.infonutri, img: value.img, quantvendas: value.quantvendas, valor: value.valor };
+        newEntry[id] = { nome: value.nome, nota: value.nota, desc: value.desc, data: dataAtual, valor: value.valor };
         value = Object.assign({}, lista, newEntry);
 
-        localStorage.setItem("produtos", JSON.stringify(value));
+        localStorage.setItem("pagamentos", JSON.stringify(value));
 
         location.reload();
     }
