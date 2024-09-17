@@ -141,7 +141,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center w-100 gap-3 position-relative">
-                <a href="produtos-cadastrar.html" class="botao-entrada p-3 rounded-3 m-2">Nova Entrada</a>
+                <a href="pagamentos-cadastrar.html" class="botao-entrada p-3 rounded-3 m-2">Nova Entrada</a>
                 <img src="/img/adicionar.svg" alt="Ícone de Adição" class="pointer position-absolute"/>
             </div>
 
@@ -165,6 +165,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Nota Fiscal -->
+    <div id="nota-fiscal" class="nota-fiscal-container">
+        <div class="nota-fiscal py-4 px-5">
+            <button class="fechar" onclick="fecharNota()">
+                <img src="img/fechar.svg" alt="Ícone de X" />
+            </button>
+            <p>Brabo Burguer LTDA CNPJ: 67.565.943/0001-32</p>
+            <p id="pedido">Pedido: </p>
+            <p id="nota-num">Nota Fiscal: </p>
+            <p id="beneficiado">Beneficiado: </p>
+            <p id="endereco-nota"></p>
+            <p id="valor-nota" class="mt-3 fw-bold">Valor Pagamento: </p>
         </div>
     </div>
 
@@ -202,10 +217,15 @@
 
             descGrid.insertAdjacentElement('beforeend', descRow);
 
-            let notaRow = document.createElement("p");
+            let notaRow = document.createElement("button");
             notaRow.innerText = lista[i].nota;
-            notaRow.classList.add('table-p');
+            notaRow.classList.add('table-p-clickable');
             notaRow.classList.add('mt-2');
+            notaRow.onclick = (function(i) {
+                return function() {
+                    carregaNota(i);
+                };
+            })(i);
 
             notaGrid.insertAdjacentElement('beforeend', notaRow);
 
@@ -224,6 +244,23 @@
             valorGrid.insertAdjacentElement('beforeend', valorRow);
         }
     });
+
+    function carregaNota(id) {
+        document.getElementById('nota-fiscal').style.display = 'flex';
+
+        let lista = JSON.parse(localStorage.getItem('pagamentos'));
+        lista = lista[id];
+
+        document.getElementById('pedido').innerText = "Pedido: " + id;
+        document.getElementById('nota-num').innerText = "Nota Fiscal: " + lista.nota;
+        document.getElementById('beneficiado').innerText = "Beneficiado: " + lista.nome;
+        document.getElementById('endereco-nota').innerText = lista.desc;
+        document.getElementById('valor-nota').innerText = "Valor Pagamento: " + lista.valor;
+    }
+
+    function fecharNota() {
+        document.getElementById('nota-fiscal').style.display = 'none';
+    }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

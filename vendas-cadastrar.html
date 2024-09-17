@@ -191,7 +191,7 @@
         let value = Object.fromEntries(data.entries());
         let lista = JSON.parse(localStorage.getItem('vendas'));
         let newEntry = {};
-        newEntry[id] = { nome: value.nome, nota: Math.floor(Math.random() * 1000000000), desc: value.desc, data: dataAtual, valor: value.valor };
+        newEntry[id] = { endereco: value.endereco, nome: value.nome, nota: Math.floor(Math.random() * 1000000000), desc: value.desc, data: dataAtual, valor: value.valor };
         value = Object.assign({}, lista, newEntry);
 
         localStorage.setItem("vendas", JSON.stringify(value));

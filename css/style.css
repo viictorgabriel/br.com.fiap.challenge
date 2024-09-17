@@ -193,6 +193,25 @@ label {
     font-size: 0.75rem;
 }
 
+.table-p-clickable {
+    padding: 0.7rem 1rem;
+    width: 90%;
+    background-color: #eee;
+    color: #555;
+    margin: auto;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    box-shadow: 1px 1px #aaa;
+    cursor: pointer;
+    border: none;
+    display: block;
+    transition: 0.5s;
+}
+
+.table-p-clickable:focus {
+    background-color: #ddd;
+}
+
 .grid-table {
     width: 70%;
     display: grid;
@@ -332,4 +351,52 @@ input[type="radio"]:checked {
     color: white;
     border: none;
     padding: 1rem 1.2rem;
+}
+
+.nota-fiscal-container {
+    display: none;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.nota-fiscal {
+    width: 55%;
+    height: fit-content;
+    background-color: #ffeec0;
+    position: relative;
+    border: black 1px solid;
+}
+
+.nota-fiscal p {
+    margin: auto;
+}
+
+.fechar {
+    position: absolute;
+    right: 13px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#endereco-nota {
+    margin-top: 1rem;
+    font-size: 0.6rem;
+    color: #555;
+}
+
+.item-nota {
+    padding: 0.75rem;
+    background-color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem !important;
 }
