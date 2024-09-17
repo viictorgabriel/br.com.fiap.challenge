@@ -71,10 +71,10 @@ header {
 }
 
 .card p {
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     color: white;
-    margin-bottom: 0.25rem;
-    font-weight: 600;
+    margin-bottom: 0.25rem;     
+    font-weight: 500;
 }
 
 .card h4 {
