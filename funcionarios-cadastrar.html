@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <title>Produtos</title>
+    <title>Funcionários</title>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -45,7 +45,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/produtos.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="produtos-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="produtos-lista.html">Lista</a></li>
@@ -61,7 +61,7 @@
                     </li>
                     <li class="nav-item d-flex">
                         <img src="./img/funcionarios.svg" alt="Ícone de Casa" class="mx-3">
-                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Funcionários</a>
+                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Funcionários</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="funcionarios-cadastrar.html">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="funcionarios-lista.html">Lista</a></li>
@@ -89,7 +89,7 @@
 
         <!-- Form -->
         <div class="w-100 container p-3">
-            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Produto: 1</h2>
+            <h2 id="cadastrar-id" class="mt-3 ms-2">Cadastrar Funcionários: 1</h2>
 
             <form class="d-flex mt-4 w-100">
                 <!-- Primeira Coluna -->
@@ -97,26 +97,29 @@
                     <label for="nome" class="ms-1">Nome:</label>
                     <input id="nome" name="nome" type="text" class="rounded-3 w-100" />
 
-                    <label for="desc" class="ms-1 mt-4">Descrição:</label>
-                    <textarea id="desc" name="desc" rows="3" class="rounded-3 w-100"></textarea>
+                    <label for="email" class="ms-1 mt-4">Email:</label>
+                    <input id="email" name="email" type="text" class="rounded-3 w-100" />
 
-                    <label for="infonutri" class="ms-1 mt-4">Informação Nutricional:</label>
-                    <textarea id="infonutri" name="infonutri" rows="5" class="rounded-3 w-100"></textarea>
+                    <label for="conta" class="ms-1 mt-4">Conta Corrente:</label>
+                    <input id="conta" name="conta" type="text" class="rounded-3 w-100" />
+
+                    <label for="cargo" class="ms-1 mt-4">Cargo:</label>
+                    <input id="cargo" name="cargo" type="text" class="rounded-3 w-100" />
                 </div>
 
                 <!-- Segunda Coluna -->
                 <div class="d-flex flex-column w-50 p-2">
-                    <label for="img" class="ms-1">Imagem:</label>
-                    <input id="img" name="img" type="file" accept="image/*" onchange="mostrarImagem(event)" class="rounded-3 w-75" />
-                    <label for="img">
-                        <img id="img-form" class="w-75"/>
-                    </label>
+                    <label for="cpf" class="ms-1">CPF:</label>
+                    <input id="cpf" name="cpf" type="text" onkeydown="mascararCpf(event)" class="rounded-3 w-75" maxlength="11" />
 
-                    <label for="quantvendas" class="ms-1 mt-4">Quantidade de Vendas:</label>
-                    <input id="quantvendas" name="quantvendas" type="number" class="rounded-3 w-75" />
+                    <label for="telefone" class="ms-1 mt-4">Telefone:</label>
+                    <input id="telefone" name="telefone" type="text" onkeydown="mascararTelefone(event)" class="rounded-3 w-75" />
 
-                    <label for="valor" class="ms-1 mt-4">Valor:</label>
-                    <input id="valor" name="valor" type="text" onkeydown="mascararValor(event)" class="rounded-3 w-75" />
+                    <label for="pix" class="ms-1 mt-4">Chave Pix:</label>
+                    <input id="pix" name="pix" type="text" class="rounded-3 w-75" />
+
+                    <label for="senha" class="ms-1 mt-4">Senha:</label>
+                    <input id="senha" name="senha" type="password" class="rounded-3 w-75" />
 
                     <input id="cadastrar" type="submit" class="rounded-3 mt-4" value="Cadastrar" />
                 </div>
@@ -128,62 +131,86 @@
     let id;
 
     window.addEventListener("load", function () {
-        let idJSON = JSON.parse(localStorage.getItem('produtos'));
+        let idJSON = JSON.parse(localStorage.getItem('funcionarios'));
         id = idJSON ? Object.keys(idJSON).length + 1 : 1;
 
-        document.getElementById('cadastrar-id').innerText = "Cadastrar Produto: " + id;
+        document.getElementById('cadastrar-id').innerText = "Cadastrar Funcionários: " + id;
     });
 
-    function mostrarImagem(event) {
-        const file = event.target.files[0];
-        const imgForm = document.getElementById('img-form');
-        imgForm.src = URL.createObjectURL(file);
+    let cpf = '';
+    function mascararCpf(event) {
+        event.preventDefault();
 
-        document.getElementById('img').style.display = 'none';
+        if(event.key == 'Backspace' && cpf != '') {
+            cpf = cpf.slice(0, -1); 
+        }
+        else if(event.key.match(/[0-9]/g) && cpf.length < 11) {
+            cpf += event.key; 
+        }
 
-        imgForm.onload = function() {
-            URL.revokeObjectURL(imgForm.src) // limpar a memória
+        if (cpf != '') {
+            let pontos = cpf.length > 2?Math.floor((cpf.length - 3) / 3):0;
+
+            let mask = cpf;
+            if(cpf.length > 2) {
+                mask = cpf.split("");
+                mask = mask.reverse();
+                mask = mask.join("");
+
+                mask = mask.substring(0, 2) + '-' + mask.substring(2, mask.length);
+
+                mask = mask.split("");
+                mask = mask.reverse();
+                mask = mask.join("");
+            }
+
+            mask = mask.replace('.','');
+
+            for(var i = 0; i < pontos; i++) {
+                var resto = (mask.length - 3 - i) % 3;
+                resto = resto == 0 ? 3 : resto;
+
+                mask = mask.substring(0, resto + (3 * i) + i) + '.' + mask.substring(resto + (3 * i) + i, mask.length);
+            }
+
+            event.target.value = mask;
+        }
+        else {
+            event.target.value = cpf;
         }
     }
 
-    let valor = '';
-    function mascararValor(event) {
+    let tel = '';
+    function mascararTelefone(event) {
         event.preventDefault();
 
-        if(event.key == 'Backspace' && valor != '') {
-            valor = valor.slice(0, -1); 
+        if(event.key == 'Backspace' && tel != '') {
+            tel = tel.slice(0, -1); 
         }
-        else if(event.key.match(/[0-9]/g)) {
-            valor += event.key; 
+        else if(event.key.match(/[0-9]/g) && tel.length < 11) {
+            tel += event.key;
         }
 
-        if (valor != '') {
-            let pontos = valor.length > 2?Math.floor((valor.length - 3) / 3):0;
+        if (tel != '') {
 
-            let currency = valor.split("");
-            currency = currency.reverse();
-            currency = currency.join("");
-
-            currency = currency.padEnd(3, '0');
-            currency = currency.substring(0, 2) + ',' + currency.substring(2, currency.length);
-
-            currency = currency.split("");
-            currency = currency.reverse();
-            currency = currency.join("");
-
-            currency = currency.replace('.','');
-
-            for(var i = 0; i < pontos; i++) {
-                var resto = (currency.length - 3 - i) % 3;
-                resto = resto == 0 ? 3 : resto;
-
-                currency = currency.substring(0, resto + (3 * i) + i) + '.' + currency.substring(resto + (3 * i) + i, currency.length);
+            let mask = tel;
+            if(tel.length > 2) {
+                mask = '(' + mask.substring(0, 2) + ') ' + mask.substring(2, mask.length);
             }
 
-            event.target.value = 'R$ ' + currency;
+            if(tel.length > 6) {
+                mask = mask.substring(0, 9) + '-' + mask.substring(9, mask.length);
+            }
+
+            if(tel.length > 10) {
+                mask = mask.replace('-','');
+                mask = mask.substring(0, 10) + '-' + mask.substring(10, mask.length);
+            }
+
+            event.target.value = mask;
         }
         else {
-            event.target.value = valor;
+            event.target.value = tel;
         }
     }
 
@@ -192,13 +219,16 @@
 
         const data = new FormData(event.target);
 
+        var date = new Date();
+        var dataAtual = date.getDate().toString().padStart(2, '0') + '/' + (date.getMonth() + 1).toString().padStart(2, '0') + '/' + date.getFullYear();
+
         let value = Object.fromEntries(data.entries());
-        let lista = JSON.parse(localStorage.getItem('produtos'));
+        let lista = JSON.parse(localStorage.getItem('funcionarios'));
         let newEntry = {};
-        newEntry[id] = { nome: value.nome, desc: value.desc, infonutri: value.infonutri, img: value.img, quantvendas: value.quantvendas, valor: value.valor };
+        newEntry[id] = { nome: value.nome, email: value.email, conta: value.conta, cargo: value.cargo, cpf: value.cpf, telefone: value.telefone, pix: value.pix, senha: value.senha, data: dataAtual };
         value = Object.assign({}, lista, newEntry);
 
-        localStorage.setItem("produtos", JSON.stringify(value));
+        localStorage.setItem("funcionarios", JSON.stringify(value));
 
         location.reload();
     }

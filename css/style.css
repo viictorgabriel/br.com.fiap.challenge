@@ -115,6 +115,13 @@ textarea {
     margin-left: auto;
 }
 
+#cadastrar-pagto {
+    width: 25%;
+    background-color: rgb(152, 0, 155);
+    color: white;
+    margin-left: auto;
+}
+
 label {
     width: fit-content;
 }
@@ -130,8 +137,8 @@ label {
 
 .table-heading {
     padding: 0.7rem 0;
-    width: 85%;
-    background-color: #890019;
+    width: 90%;
+    
     color: white;
     margin: auto;
     text-align: center;
@@ -139,24 +146,73 @@ label {
     font-size: 0.9rem;
 }
 
+.produtos {
+    background-color: #890019;
+}
+
+.fornecedores {
+    background-color: #160483;
+}
+
+.funcionarios {
+    background-color: #98009B;
+}
+
+.funcionarios-border {
+    border-color: #a766a8;
+}
+
+.pagamentos {
+    background-color: #FF6565;
+}
+
+.pagamentos-border {
+    border-color: #ffb9b9;
+}
+
+.vendas {
+    background-color: #014811;
+}
+
+.vendas-border {
+    border-color: #407c4e;
+}
+
 .table-p {
     padding: 0.7rem 1rem;
-    width: 85%;
+    width: 90%;
     background-color: #eee;
     color: #555;
     margin: auto;
     border-radius: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
 }
 
 .grid-table {
-    width: 80%;
+    width: 70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+.grid-table-6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 .w-20 {
     width: 20%
+}
+
+.w-40 {
+    width: 40%
+}
+
+.w-60 {
+    width: 60%
+}
+
+.w-90 {
+    width: 90%
 }
 
 .acoes {
@@ -186,4 +242,65 @@ label {
 
 .botao-entrada {
     background-color: #0930BB;
+}
+
+.relatorio {
+    background-color: #E0E0E0;
+    color: #1F253A;
+    font-weight: 500;
+    text-align: center;
+    height: fit-content;
+}
+
+.botoes-relatorio {
+    margin: 0;
+    background-color: #1F253A;
+    color: #E0E0E0;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.flex-checkbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5.4rem;
+    gap: 1.8rem;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background-color: #B8AFAF;
+}
+
+input[type="checkbox"]:checked {
+    background-color: white;
+    border: 4px solid #DA2F3A;
+}
+
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background-color: #B8AFAF;
+}
+
+input[type="radio"]:checked {
+    background-color: white;
+    border: 4px solid #DA2F3A;
+}
+
+#adicionar-produto {
+    background-color: #0930BB;
+    color: white;
+    border: none;
+    padding: 1rem 1.2rem;
 }
