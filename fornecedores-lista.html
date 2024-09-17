@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/ifood-logo.svg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <title>Fornecedores</title>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="px-4 d-flex align-items-center">
+        <div class="flex-grow-1">
+            <img src="./img/ifood-logo.svg" alt="Logo do iFood" class="logo-ifood ms-5">
+        </div>
+        
+        <div class="d-flex gap-4">
+            <img src="./img/bell.svg" alt="Ícone de Notificação" class="pointer">
+            <img src="./img/mensagem.svg" alt="Ícone de Mensagem" class="pointer">
+            <a href="perfil.html">
+                <img src="/img/perfil.svg" alt="Ícone de Perfil" class="pointer">
+            </a>
+        </div>
+    </header>
+    
+    <div class="d-flex">
+        <!-- Navegação -->
+        <div class="w-25 d-flex navegacao flex-column">
+            <div class="w-100 d-flex justify-content-center align-items-center" style="height: 200px;">
+                <img src="./img/brabo-logo.png" alt="Logo da Brabo" class="rounded-circle h-50">
+            </div>
+
+            <nav class="d-flex justify-content-center align-items-center">
+                <ul class="nav nav-pills d-flex flex-column gap-3">
+                    <li class="nav-item dropdown d-flex">
+                        <img src="./img/dashboard.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Dashboard</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dashboard-entrada.html">Entradas</a></li>
+                            <li><a class="dropdown-item" href="dashboard-saidas.html">Saídas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <img src="./img/produtos.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Produtos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="produtos-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="produtos-lista.html">Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <img src="./img/fornecedores.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav-active dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Fornecedores</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="fornecedores-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="fornecedores-lista.html">Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <img src="./img/funcionarios.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Funcionários</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="funcionarios-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="funcionarios-lista.html">Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <img src="./img/pagamentos.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Pagamentos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pagamentos-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="pagamentos-lista.html">Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <img src="./img/vendas.svg" alt="Ícone de Casa" class="mx-3">
+                        <a class="link-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Vendas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vendas-cadastrar.html">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="vendas-lista.html">Lista</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="d-flex flex-column w-100">
+            <div class="d-flex h-75">
+                <!-- Lista -->
+                <div id="flex-checkbox" class="flex-checkbox">
+
+                </div>
+
+                <div class="grid-table-6 border-primary-subtle border-dashed-table m-2 w-100">
+                    <div id="nome-grid" class="p-2 border-primary-subtle border-dashed-col">
+                        <p class="table-heading fornecedores">
+                            Nome
+                        </p>
+                    </div>
+                    <div id="cpf-grid" class="p-2 border-primary-subtle border-dashed-col">
+                        <p class="table-heading fornecedores">
+                            CPF
+                        </p>
+                    </div>
+                    <div id="email-grid" class="p-2 border-primary-subtle border-dashed-col">
+                        <p class="table-heading fornecedores">
+                            E-mail
+                        </p>
+                    </div>
+                    <div id="telefone-grid" class="p-2 border-primary-subtle border-dashed-col">
+                        <p class="table-heading fornecedores">
+                            Telefone
+                        </p>
+                    </div>
+                    <div id="cargo-grid" class="p-2 border-primary-subtle border-dashed-col">
+                        <p class="table-heading fornecedores">
+                           Cargo
+                        </p>
+                    </div>
+                    <div id="data-grid" class="p-2">
+                        <p class="table-heading fornecedores">
+                            Data
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Opções -->
+            <div class="d-flex w-100 mt-4 justify-content-center align-items-center">
+                <div class="acoes rounded-3 m-2 p-2 py-3">
+                    <p class="mb-4">Ações da Seleção</p>
+        
+                    <div class="d-flex justify-content-center align-items-center w-100 gap-3 retroceder-div">
+                        <div class="botao-editar botoes-acoes p-2 rounded-3">
+                            <p >Editar</p>
+                            <img src="/img/editar.svg" alt="Ícone de Lápis" class="pointer"/>
+                        </div>
+    
+                        <div class="botao-excluir botoes-acoes p-2 rounded-3">
+                            <p >Exluir</p>
+                            <img src="/img/excluir.svg" alt="Ícone de Lixeira" class="pointer"/>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="relatorio rounded-3 m-2 p-1">
+                    <p class="mb-4">Relatório</p>
+        
+                    <div class="d-flex w-100 justify-content-evenly">
+                        <div class="d-flex justify-content-center align-items-center w-100 gap-1 flex-column pointer">
+                            <img src="/img/enviar.svg" alt="Ícone de Avião de Papel" class="pointer"/>
+                            <p class="botoes-relatorio p-2 px-3 rounded-3">Enviar</p>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center w-100 gap-1 flex-column pointer">
+                            <img src="/img/salvar.svg" alt="Ícone de PDF" class="pointer"/>
+                            <p class="botoes-relatorio p-2 px-3 rounded-3">Salvar</p>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center w-100 gap-1 flex-column pointer">
+                            <img src="/img/impressao.svg" alt="Ícone de Impressora" class="pointer"/>
+                            <p class="botoes-relatorio p-2 px-3 rounded-3">Impressão</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center align-items-center w-100 gap-3 position-relative">
+                    <a href="fornecedores-cadastrar.html" class="botao-entrada p-3 rounded-3 m-2 ms-auto w-40">Nova Entrada</a>
+                    <img src="/img/adicionar.svg" alt="Ícone de Adição" class="pointer position-absolute"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    window.addEventListener("load", function () {
+        const checkboxDiv = document.getElementById('flex-checkbox');
+        const nomeGrid = document.getElementById('nome-grid');
+        const cpfGrid = document.getElementById('cpf-grid');
+        const emailGrid = document.getElementById('email-grid');
+        const telefoneGrid = document.getElementById('telefone-grid');
+        const cargoGrid = document.getElementById('cargo-grid');
+        const dataGrid = document.getElementById('data-grid');
+        let lista = JSON.parse(localStorage.getItem('fornecedores'));
+
+        var count = Object.keys(lista).length;
+
+        for(var i = 1; i <= count; i++) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            checkboxDiv.insertAdjacentElement('beforeend', checkbox);
+
+            let nomeRow = document.createElement("p");
+            nomeRow.innerText = lista[i].nome;
+            nomeRow.classList.add('table-p');
+            nomeRow.classList.add('mt-2');
+
+            nomeGrid.insertAdjacentElement('beforeend', nomeRow);
+
+            let cpfRow = document.createElement("p");
+            cpfRow.innerText = lista[i].cpf;
+            cpfRow.classList.add('table-p');
+            cpfRow.classList.add('mt-2');
+
+            cpfGrid.insertAdjacentElement('beforeend', cpfRow);
+
+            let emailRow = document.createElement("p");
+            emailRow.innerText = lista[i].email;
+            emailRow.classList.add('table-p');
+            emailRow.classList.add('mt-2');
+
+            emailGrid.insertAdjacentElement('beforeend', emailRow);
+
+            let telefoneRow = document.createElement("p");
+            telefoneRow.innerText = lista[i].telefone;
+            telefoneRow.classList.add('table-p');
+            telefoneRow.classList.add('mt-2');
+
+            telefoneGrid.insertAdjacentElement('beforeend', telefoneRow);
+
+            let cargoRow = document.createElement("p");
+            cargoRow.innerText = lista[i].cargo;
+            cargoRow.classList.add('table-p');
+            cargoRow.classList.add('mt-2');
+
+            cargoGrid.insertAdjacentElement('beforeend', cargoRow);
+
+            let dataRow = document.createElement("p");
+            dataRow.innerText = lista[i].data;
+            dataRow.classList.add('table-p');
+            dataRow.classList.add('mt-2');
+
+            dataGrid.insertAdjacentElement('beforeend', dataRow);
+        }
+    });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
